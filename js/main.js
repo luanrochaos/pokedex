@@ -1,9 +1,5 @@
 const pokemonList = document.querySelector(".pokemon-list")
 
-const offset = 0
-const limit = 20
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-
 function pokemonToLi(pokemon) {
     return `<li class="pokemon">
         <span class="number"></span>
@@ -19,14 +15,9 @@ function pokemonToLi(pokemon) {
         </li>
     `
 }
-
-fetch(url)
-    .then((response) => response.json())
-    .then((jsonBody) => jsonBody.results)
-    .then((pokeList) => {
-        for(let i = 0; i < pokeList.length; i++) {
-            const pokemon = pokeList[i];
-            pokemonList.innerHTML += pokemonToLi(pokemon)
-        }
-    })
-    .catch((error) => console.error(error))
+pokeApi.getPokemon().then((pkm) => {
+    for(let i = 0; pkm.length; i++){
+        const pokemon = pkm[i];
+        pokemonList.innerHTML += pokemonToLi(pokemon)
+    }
+})
