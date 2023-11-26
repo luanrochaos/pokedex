@@ -15,9 +15,7 @@ function pokemonToLi(pokemon) {
         </li>
     `
 }
-pokeApi.getPokemon().then((pkm) => {
-    for(let i = 0; pkm.length; i++){
-        const pokemon = pkm[i];
-        pokemonList.innerHTML += pokemonToLi(pokemon)
-    }
+
+pokeApi.getPokemon().then((pokemon = []) => {
+    pokemonList.innerHTML += pokemon.map(pokemonToLi).join('')
 })
