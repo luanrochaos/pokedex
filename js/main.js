@@ -1,21 +1,20 @@
 const pokemonList = document.querySelector(".pokemon-list")
 
-function pokemonToLi(pokemon) {
+function convertPokemonToLi(pokemon) {
     return `<li class="pokemon">
-        <span class="number"></span>
-        <span class="name">${pokemon.name}</span>
-    
+        <span class="number">#${pokemon.number}</span>
+        <span class="name">${pokemon.name}</span>   
         <div class="detail">
             <ol class="types">
-                <li class="type">Grass</li>
-                <li class="type">Poison</li>
+                ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
             </ol>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="${pokemon.name}">
+            <img src="${pokemon.img}" alt="${pokemon.name}">
         </div>
         </li>
     `
 }
 
 pokeApi.getPokemon().then((pokemon = []) => {
-    pokemonList.innerHTML += pokemon.map(pokemonToLi).join('')
+    const newHtml = pokemon.map(convertPokemonToLi).join('')
+    pokemonList.innerHTML = newHtml
 })
