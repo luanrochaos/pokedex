@@ -1,4 +1,4 @@
-.pokemon-list{
+#pokemon-list{
     display: grid;
     grid-template-columns: 1fr;
     list-style: none;
@@ -16,7 +16,7 @@
 .water {
     background-color:#678fee}
 
-.eletric {
+.electric {
     background-color:#f7cf2e}
 
 .ice {
@@ -110,20 +110,39 @@
 }
 
 
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination button {
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625;
+    color: #fff;
+    background-color: #67c1ee;
+    border: none;
+    border-radius: 1rem;
+}
+
 @media screen and (min-width: 380px) {
-    .pokemon-list {
+    #pokemon-list {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media screen and (min-width: 576px) {
-    .pokemon-list {
+    #pokemon-list {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media screen and (min-width: 992px) {
-    .pokemon-list {
+    #pokemon-list {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
